@@ -33,7 +33,7 @@ var example1 = new Vue({
       },
       {
         "registered": "03/25/2016",
-        "toExport": true,
+        "toExport": false,
         "description": "Ut veniam reprehenderit labore aliqua commodo elit ut commodo aliqua aute laborum laborum elit eu. Tempor nisi sit elit excepteur ut labore velit incididunt non aliqua Lorem ipsum. Excepteur irure ullamco minim adipisicing. Nisi do magna ad ut nulla adipisicing quis aliquip id. Quis minim id id duis dolor irure. Eiusmod officia magna ad et voluptate esse voluptate cillum occaecat Lorem reprehenderit excepteur voluptate.",
         "title": "Velit consequat eu anim velit elit.",
         "name": "Vazquez Keller",
@@ -139,7 +139,7 @@ var example1 = new Vue({
           // Add title
           slide.addText(item.title, { x:0.5, y:0.25, font_size:24, font_face:'Georgia', color:'000000' });
           // Add description
-          slide.addText(item.description, { x:5.0, y:3.0, font_size:14, font_face:'Georgia', w:'40%', h:0.38, color:'000000' });
+          slide.addText(item.description, { x:5.0, y:3.0, font_size:12, font_face:'Georgia', w:'40%', h:0.38, color:'000000' });
 
           // Images: Using local images sources (same paths as you would use in an {img src=""} tag)
           slide.addImage({ data:item.image, x:1.0, y:1.8, w:2.0, h:2.0 });
