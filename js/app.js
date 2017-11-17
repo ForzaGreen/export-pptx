@@ -87,6 +87,19 @@ var example1 = new Vue({
     }
   },
   methods: {
+    insertNewItem: function() {
+      this.items.push({
+        "registered": "12/12/2015",
+        "toExport": false,
+        "description": "",
+        "title": "",
+        "name": "",
+        "image": "",
+        "imageRaw": "",
+        "index": 93,
+        "id": "someId"
+      });
+    },
   	exportPptx: function() {
   		console.log("Let's generate a pptx !");
       // Create a new Presentation
