@@ -72,7 +72,7 @@
     </div>
     <div class="form-group">
       <label for="inputImage">Image</label>
-      <input type="file" class="form-control-file" v-model="inputImage" id="inputImage" aria-describedby="fileHelp">
+      <input type="file" class="form-control-file" v-on:change="onFileChange" id="inputImage" aria-describedby="fileHelp">
       <small id="fileHelp" class="form-text text-muted">Une image qui résume l'article.</small>
     </div>
   </fieldset>
