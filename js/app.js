@@ -84,6 +84,9 @@ var example1 = new Vue({
           item.title.toLowerCase().includes(this.search.toLowerCase()) ||
           item.description.toLowerCase().includes(this.search.toLowerCase())          
           )
+      }).sort((a,b) => {
+        // Sort on registered date, descinding order
+        return (new Date(b.registered)) - (new Date(a.registered));
       })
     },
     nbrOfSlidesToExport() {
