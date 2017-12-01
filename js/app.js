@@ -5,18 +5,24 @@ function isHttpURL (str) {
     return regex.test(str);
 }
 
+// bootstrap-datepicker was abandoned because it didn't go with modals.
+// native html input="date" doesn't do well with baindings.
+// moment.locale('fr');
+
 var example1 = new Vue({
   el: '#myapp',
   data: {
     search: '',
     inputName: '',
     inputTitle: '',
+    // inputRegistered: moment().format('YYYY-MM-DD'), //format for type=date
+    inputRegistered: moment().format('DD/MM/YYYY'),
     inputDescription: '',
     inputImage: '',
     inputSource: '',
     items: [
       {
-        "registered": "09/19/2017",
+        "registered": "09/01/2017",
         "toExport": false,
         "source": "https://google.com",
         "description": "Excepteur test paris Lorem in commodo reprehenderit consequat sint qui sit pariatur amet commodo aute. Aliqua ea ex proident duis ullamco nulla commodo deserunt excepteur tempor fugiat pariatur est. Esse culpa consequat consequat do. Deserunt est exercitation do ad dolore duis duis.",
@@ -28,7 +34,7 @@ var example1 = new Vue({
         "id": "5a0ccae7d0edc0254e9177f8"
       },
       {
-        "registered": "12/21/2016",
+        "registered": "21/12/2016",
         "toExport": false,
         "source": "https://google.com",
         "description": "Sunt officia id sunt laborum aute mollit. Culpa officia nisi magna esse elit minim ad. Anim esse ex aliqua irure ex.",
@@ -40,7 +46,7 @@ var example1 = new Vue({
         "id": "5a0ccae7a6595215d72df621"
       },
       {
-        "registered": "03/25/2016",
+        "registered": "25/03/2016",
         "toExport": false,
         "source": "https://google.com",
         "description": "Ut veniam reprehenderit labore aliqua commodo elit ut commodo aliqua aute laborum laborum elit eu. Tempor nisi sit elit excepteur ut labore velit incididunt non aliqua Lorem ipsum. Excepteur irure ullamco minim adipisicing. Nisi do magna ad ut nulla adipisicing quis aliquip id. Quis minim id id duis dolor irure. Eiusmod officia magna ad et voluptate esse voluptate cillum occaecat Lorem reprehenderit excepteur voluptate.",
@@ -64,7 +70,7 @@ var example1 = new Vue({
         "id": "5a0ccae797907443a29c1d41"
       },
       {
-        "registered": "04/19/2016",
+        "registered": "19/04/2016",
         "toExport": false,
         "source": "https://google.com",
         "description": "Aute eiusmod pariatur exercitation exercitation cupidatat sit ipsum anim consequat officia incididunt. Nisi cillum adipisicing labore mollit ullamco nulla id quis. Deserunt esse laboris laborum nulla eiusmod veniam excepteur. Culpa laborum minim proident ut enim id excepteur sit exercitation esse cupidatat.",
@@ -76,7 +82,7 @@ var example1 = new Vue({
         "id": "5a0ccae76027ecb0377f5066"
       },
       {
-        "registered": "02/22/2015",
+        "registered": "22/02/2015",
         "toExport": false,
         "source": "https://google.com",
         "description": "Elit enim nostrud qui labore cupidatat non occaecat qui. Eiusmod tempor cupidatat et minim reprehenderit duis esse id. Qui veniam minim qui occaecat ipsum irure minim dolore duis amet nostrud minim.",
@@ -98,7 +104,7 @@ var example1 = new Vue({
           )
       }).sort((a,b) => {
         // Sort on registered date, descinding order
-        return (new Date(b.registered)) - (new Date(a.registered));
+        return (new moment(b.registered, 'DD/MM/YYYY')) - (new moment(a.registered, 'DD/MM/YYYY'));
       })
     },
     nbrOfSlidesToExport() {
@@ -128,8 +134,9 @@ var example1 = new Vue({
       if ( !isHttpURL(this.inputSource) ) {
         this.inputSource = "http://" + this.inputSource;
       }
+
       var newItem = {
-        "registered": "12/12/2017",
+        "registered": moment(this.inputRegistered, 'DD/MM/YYYY').format('DD/MM/YYYY'),
         "toExport": false,
         "description": this.inputDescription,
         "title": this.inputTitle,
