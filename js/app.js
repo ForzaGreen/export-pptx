@@ -100,7 +100,8 @@ var example1 = new Vue({
       return this.items.filter(item => {
         return (
           item.title.toLowerCase().includes(this.search.toLowerCase()) ||
-          item.description.toLowerCase().includes(this.search.toLowerCase())          
+          item.description.toLowerCase().includes(this.search.toLowerCase()) ||
+          item.name.toLowerCase().includes(this.search.toLowerCase())
           )
       }).sort((a,b) => {
         // Sort on registered date, descinding order
